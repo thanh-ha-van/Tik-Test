@@ -10,7 +10,8 @@
     <TextView android:layout_width="wrap_content"
               android:layout_gravity="center"
               android:id="@+id/tv_keyword"
+              android:gravity="center"
+              android:textSize="@dimen/text_size_keyword"
               android:textColor="@color/white"
-              android:text="GG EZ GAME"
               android:layout_height="wrap_content"/>
 </LinearLayout>
