@@ -1,4 +1,4 @@
-package ha.thanh.tiktest.data.helper
+package ha.thanh.tiktest.helper
 
 import android.content.Context
 import android.graphics.drawable.GradientDrawable

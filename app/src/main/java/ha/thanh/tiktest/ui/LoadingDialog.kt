@@ -8,18 +8,18 @@ import ha.thanh.tiktest.R
 
 class LoadingDialog(private var activity: Activity) {
 
-    private lateinit var dialog: Dialog
+    private lateinit var mDialog: Dialog
 
     fun showDialog() {
-        dialog = Dialog(activity)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(false)
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        dialog.setContentView(R.layout.dialog_loading)
-        dialog.show()
+        mDialog = Dialog(activity)
+        mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        mDialog.setCancelable(false)
+        mDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        mDialog.setContentView(R.layout.dialog_loading)
+        mDialog.show()
     }
 
     fun hideDialog() {
-        dialog.dismiss()
+        mDialog.dismiss()
     }
 }

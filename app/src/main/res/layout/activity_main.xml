@@ -7,7 +7,7 @@
         android:gravity="center"
         tools:context=".MainActivity">
     <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_definition"
+            android:id="@+id/rv_keyword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layoutAnimation="@anim/layout_animation_from_right"

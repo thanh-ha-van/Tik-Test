@@ -7,7 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ha.thanh.tiktest.R
-import ha.thanh.tiktest.data.helper.getRandomBackgroundColor
+import ha.thanh.tiktest.helper.StringHelper
+import ha.thanh.tiktest.helper.getRandomBackgroundColor
 import kotlinx.android.synthetic.main.item_keyword.view.*
 import java.util.*
 
@@ -23,7 +24,6 @@ class KeywordAdapter(context: Context?) :
     fun updateInfo(newItems: List<String>) {
         mKeywordList = newItems
         notifyDataSetChanged()
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -35,13 +35,12 @@ class KeywordAdapter(context: Context?) :
                 false
             )
         )
-
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         holder.itemView.background = getRandomBackgroundColor(mContext!!)
-        holder.itemView.tv_keyword.text = mKeywordList[position]
+        holder.itemView.tv_keyword.text = StringHelper.processKeyword(mKeywordList[position])
 
     }
 

@@ -12,9 +12,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var dialog: LoadingDialog
-    private lateinit var searchViewModel: MainViewModel
-    private lateinit var adapter: KeywordAdapter
+    private lateinit var mDialog: LoadingDialog
+    private lateinit var mMainViewModel: MainViewModel
+    private lateinit var mAdapter: KeywordAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,23 +28,23 @@ class MainActivity : AppCompatActivity() {
             this,
             LinearLayoutManager.HORIZONTAL, false
         )
-        rv_definition.layoutManager = layoutManager
-        adapter = KeywordAdapter(this)
-        rv_definition.adapter = adapter
+        rv_keyword.layoutManager = layoutManager
+        mAdapter = KeywordAdapter(this)
+        rv_keyword.adapter = mAdapter
 
         val animation = AnimationUtils
             .loadLayoutAnimation(this, R.anim.layout_animation_from_right)
-        rv_definition.layoutAnimation = animation
-        dialog = LoadingDialog(this)
+        rv_keyword.layoutAnimation = animation
+        mDialog = LoadingDialog(this)
         searchKeyword()
     }
 
 
     private fun initViewModel() {
-        searchViewModel = ViewModelProviders
+        mMainViewModel = ViewModelProviders
             .of(this)
             .get(MainViewModel::class.java)
-        searchViewModel
+        mMainViewModel
             .let {
                 lifecycle.addObserver(it)
             }
@@ -52,26 +52,26 @@ class MainActivity : AppCompatActivity() {
 
     private fun searchKeyword() {
         showLoadingDialog()
-        searchViewModel
+        mMainViewModel
             .getData()?.observe(
                 this,
                 Observer { definitionList ->
-                    adapter.updateInfo(definitionList!!)
+                    mAdapter.updateInfo(definitionList!!)
                     reRunAnimation()
-                    rv_definition.smoothScrollToPosition(0)
+                    rv_keyword.smoothScrollToPosition(0)
                     hideLoadingDialog()
                 })
     }
 
     private fun reRunAnimation() {
-        rv_definition.scheduleLayoutAnimation()
+        rv_keyword.scheduleLayoutAnimation()
     }
 
     private fun showLoadingDialog() {
-        dialog.showDialog()
+        mDialog.showDialog()
     }
 
     private fun hideLoadingDialog() {
-        dialog.hideDialog()
+        mDialog.hideDialog()
     }
 }

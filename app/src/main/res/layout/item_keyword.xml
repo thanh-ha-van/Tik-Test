@@ -13,5 +13,6 @@
               android:gravity="center"
               android:textSize="@dimen/text_size_keyword"
               android:textColor="@color/white"
+              android:text="Thanh Ha Van"
               android:layout_height="wrap_content"/>
 </LinearLayout>

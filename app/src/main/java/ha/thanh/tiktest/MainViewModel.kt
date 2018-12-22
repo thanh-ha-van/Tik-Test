@@ -9,30 +9,30 @@ import javax.inject.Inject
 class MainViewModel : ViewModel(), LifecycleObserver {
 
     @Inject
-    lateinit var definitionRepository: RepositoryImpl
+    lateinit var mRepository: RepositoryImpl
 
-    private val compositeDisposable = CompositeDisposable()
+    private val mCompositeDisposable = CompositeDisposable()
 
-    private var liveDefinitionData: LiveData<List<String>>? = null
+    private var mLiveDefinitionData: LiveData<List<String>>? = null
 
     init {
         MyApp.appComponent.inject(this)
     }
 
     fun getData(): LiveData<List<String>>? {
-        liveDefinitionData = null
-        liveDefinitionData = MutableLiveData<List<String>>()
-        liveDefinitionData = definitionRepository.getData()
-        return liveDefinitionData
+        mLiveDefinitionData = null
+        mLiveDefinitionData = MutableLiveData<List<String>>()
+        mLiveDefinitionData = mRepository.getData()
+        return mLiveDefinitionData
     }
 
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun unSubscribeViewModel() {
-        for (disposable in definitionRepository.allCompositeDisposable) {
-            compositeDisposable.addAll(disposable)
+        for (disposable in mRepository.allCompositeDisposable) {
+            mCompositeDisposable.addAll(disposable)
         }
-        compositeDisposable.clear()
+        mCompositeDisposable.clear()
     }
 
     override fun onCleared() {
