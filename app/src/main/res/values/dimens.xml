@@ -1,0 +1,10 @@
+<resources>
+
+    <dimen name="size_keyword_height">100dp</dimen>
+
+    <dimen name="text_size_keyword">20sp</dimen>
+
+    <dimen name="padding_default">20dp</dimen>
+
+    <dimen name="margin_default">10dp</dimen>
+</resources>
