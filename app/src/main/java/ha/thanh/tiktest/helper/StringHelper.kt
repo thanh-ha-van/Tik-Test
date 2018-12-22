@@ -6,6 +6,7 @@ import java.util.*
 // Magic here. Do not touch
 
 object StringHelper {
+
     fun processKeyword(string: String): String {
         return if (countWord(string) == 1) {
             string

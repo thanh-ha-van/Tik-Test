@@ -7,14 +7,14 @@ import java.util.*
 
 fun getRandomBackgroundColor(context: Context): GradientDrawable {
 
-    // get random color from 0 to 255 is fine but sometime it create ugly colors.
+    // I was thinking that get random color from 0 to 255 is fine but sometime it create ugly colors.
     // So I'm gonna just comment out this solution
     //    val r = Random()
     //    val red = r.nextInt(255 - 0 + 1) + 0
     //    val green = r.nextInt(255 - 0 + 1) + 0
     //    val blue = r.nextInt(255 - 0 + 1) + 0
 
-    // get random color from a pre-defined color resource.
+    // to replace by getting random color from a pre-defined color resource.
     val array = context.resources.getIntArray(R.array.keyword_color)
     val randomStr = array[Random().nextInt(array.size)]
 
